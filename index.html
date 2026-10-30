@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="hi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>आरती संग्रह</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg1: #fff4e0;
+        --bg2: #ffd9a0;
+        --card: rgba(255, 255, 255, 0.75);
+        --text: #3b1d0a;
+        --accent: #d9480f;
+        --accent2: #f59f00;
+        --chip: rgba(255, 255, 255, 0.7);
+        --shadow: 0 10px 40px rgba(217, 72, 15, 0.25);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg1: #1a0b05;
+          --bg2: #3a1505;
+          --card: rgba(40, 20, 10, 0.75);
+          --text: #ffe9cc;
+          --accent: #ff8c42;
+          --accent2: #ffd43b;
+          --chip: rgba(60, 30, 15, 0.7);
+          --shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg1: #1a0b05;
+        --bg2: #3a1505;
+        --card: rgba(40, 20, 10, 0.75);
+        --text: #ffe9cc;
+        --accent: #ff8c42;
+        --accent2: #ffd43b;
+        --chip: rgba(60, 30, 15, 0.7);
+        --shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+      }
+      :root {
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      html {
+        scroll-padding-top: env(safe-area-inset-top, 0px);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Poppins", "Tiro Devanagari Hindi", sans-serif;
+        color: var(--text);
+        background: linear-gradient(160deg, var(--bg1), var(--bg2)) fixed;
+        overflow-x: hidden;
+      }
+      header {
+        text-align: center;
+        padding: 28px 16px 8px;
+      }
+      h1 {
+        font-family: "Tiro Devanagari Hindi", serif;
+        font-size: clamp(2rem, 6vw, 3.2rem);
+        margin: 0;
+        background: linear-gradient(90deg, var(--accent), var(--accent2));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .sub {
+        opacity: 0.75;
+        margin-top: 4px;
+      }
+      .diya {
+        font-size: 2.4rem;
+        display: inline-block;
+        animation: flicker 1.6s infinite alternate;
+        filter: drop-shadow(0 0 12px var(--accent2));
+      }
+      @keyframes flicker {
+        from {
+          transform: scale(1) rotate(-3deg);
+        }
+        to {
+          transform: scale(1.12) rotate(3deg);
+          filter: drop-shadow(0 0 22px var(--accent2));
+        }
+      }
+      .tools {
+        position: absolute;
+        top: calc(12px + env(safe-area-inset-top, 0px));
+        right: 12px;
+        display: flex;
+        gap: 6px;
+      }
+      button {
+        font: inherit;
+        cursor: pointer;
+        border: 0;
+      }
+      .tbtn {
+        background: var(--chip);
+        color: var(--text);
+        border-radius: 10px;
+        padding: 6px 10px;
+        backdrop-filter: blur(8px);
+      }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        padding: 16px;
+        max-width: 900px;
+        margin: auto;
+      }
+      .chip {
+        background: var(--chip);
+        color: var(--text);
+        padding: 10px 18px;
+        border-radius: 999px;
+        font-family: "Tiro Devanagari Hindi", serif;
+        font-size: 1.05rem;
+        backdrop-filter: blur(8px);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+        transition: 0.25s;
+      }
+      .chip:hover {
+        transform: translateY(-3px);
+      }
+      .chip.active {
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        color: #fff;
+        box-shadow: var(--shadow);
+      }
+      main {
+        max-width: 760px;
+        margin: 8px auto 40px;
+        padding: 0 14px;
+      }
+      .card {
+        background: var(--card);
+        backdrop-filter: blur(14px);
+        border-radius: 24px;
+        padding: 28px 22px;
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(245, 159, 0, 0.3);
+        animation: rise 0.5s ease;
+      }
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .card h2 {
+        font-family: "Tiro Devanagari Hindi", serif;
+        text-align: center;
+        font-size: 1.9rem;
+        margin: 0 0 4px;
+        color: var(--accent);
+      }
+      .card .tag {
+        text-align: center;
+        opacity: 0.7;
+        margin-bottom: 18px;
+      }
+      .lines {
+        font-family: "Tiro Devanagari Hindi", serif;
+        text-align: center;
+        line-height: 2;
+        font-size: var(--fs, 1.25rem);
+      }
+      .lines p {
+        margin: 0 0 14px;
+        opacity: 0;
+        animation: rise 0.6s forwards;
+      }
+      .lines p.refrain {
+        color: var(--accent);
+        font-weight: 600;
+      }
+      .om {
+        text-align: center;
+        font-size: 1.4rem;
+        margin-top: 16px;
+      }
+      footer {
+        text-align: center;
+        padding: 10px 16px 30px;
+        opacity: 0.7;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tools">
+      <button class="tbtn" id="minus" aria-label="छोटा">A−</button>
+      <button class="tbtn" id="plus" aria-label="बड़ा">A+</button>
+      <button class="tbtn" id="theme" aria-label="थीम">🌓</button>
+    </div>
+    <header>
+      <div class="diya">🪔</div>
+      <h1>आरती संग्रह</h1>
+      <div class="sub">अपने इष्टदेव के नाम पर क्लिक करें</div>
+    </header>
+    <nav id="nav"></nav>
+    <main><div class="card" id="card"></div></main>
+    <footer>🙏 जय श्री राम • हर हर महादेव • जय माता दी 🙏</footer>
+
+    <script>
+      const A = [
+        {
+          id: "ganesh",
+          n: "श्री गणेश",
+          e: "🐘",
+          t: "प्रथम पूज्य विघ्नहर्ता",
+          l: [
+            "जय गणेश जय गणेश जय गणेश देवा।|माता जाकी पार्वती पिता महादेवा॥|r",
+            "एक दंत दयावंत चार भुजा धारी।|माथे सिंदूर सोहे मूसे की सवारी॥",
+            "पान चढ़े फूल चढ़े और चढ़े मेवा।|लड्डुअन का भोग लगे संत करें सेवा॥",
+            "अंधन को आंख देत कोढ़िन को काया।|बांझन को पुत्र देत निर्धन को माया॥",
+            "'सूर' श्याम शरण आए सफल कीजे सेवा।|माता जाकी पार्वती पिता महादेवा॥",
+            "जय गणेश जय गणेश जय गणेश देवा।|माता जाकी पार्वती पिता महादेवा॥|r",
+            "दीनन की लाज रखो शंभु सुतकारी।|कामना को पूर्ण करो जय बलिहारी॥",
+          ],
+        },
+        {
+          id: "shiv",
+          n: "श्री शिव",
+          e: "🔱",
+          t: "महादेव भोलेनाथ",
+          l: [
+            "ॐ जय शिव ओंकारा, स्वामी जय शिव ओंकारा।|ब्रह्मा विष्णु सदाशिव, अर्द्धांगी धारा॥|r",
+            "एकानन चतुरानन पंचानन राजे।|हंसासन गरुड़ासन वृषवाहन साजे॥",
+            "दो भुज चार चतुर्भुज दसभुज अति सोहे।|तीनों रूप निरखता त्रिभुवन जन मोहे॥",
+            "अक्षमाला वनमाला मुंडमाला धारी।|त्रिपुरारी कंसारी कर माला धारी॥",
+            "श्वेतांबर पीतांबर बाघंबर अंगे।|संकट में घिर जाए तो शिव करें सहाये॥",
+            "कर के मध्य कमंडलु चक्र त्रिशूलधारी।|सुखकारी दुखहारी जगपालन कारी॥",
+            "ब्रह्मा विष्णु सदाशिव जानत अविवेका।|प्रणवाक्षर के मध्ये ये तीनों एका॥",
+            "ॐ जय शिव ओंकारा, स्वामी जय शिव ओंकारा।|ब्रह्मा विष्णु सदाशिव, अर्द्धांगी धारा॥|r",
+          ],
+        },
+        {
+          id: "vishnu",
+          n: "श्री विष्णु",
+          e: "🪷",
+          t: "ॐ जय जगदीश हरे",
+          l: [
+            "ॐ जय जगदीश हरे, स्वामी जय जगदीश हरे।|भक्त जनों के संकट, दास जनों के संकट, क्षण में दूर करे॥|r",
+            "जो ध्यावे फल पावे, दुःख बिनसे मन का।|सुख संपति घर आवे, कष्ट मिटे तन का॥",
+            "मात पिता तुम मेरे, शरण गहूं किसकी।|तुम बिन और न दूजा, आस करूं जिसकी॥",
+            "तुम पूरण परमात्मा, तुम अंतर्यामी।|पारब्रह्म परमेश्वर, तुम सबके स्वामी॥",
+            "तुम करुणा के सागर, तुम पालनकर्ता।|मैं मूरख खल कामी, कृपा करो भर्ता॥",
+            "तुम हो एक अगोचर, सबके प्राणपति।|किस विधि मिलूं दयामय, तुमको मैं कुमति॥",
+            "दीनबंधु दुखहर्ता, ठाकुर तुम मेरे।|अपने हाथ उठाओ, अपनों को उबारे॥",
+            "विषय विकार मिटाओ, पाप हरो देवा।|श्रद्धा भक्ति बढ़ाओ, जन का करो कल्याण॥",
+            "ॐ जय जगदीश हरे, स्वामी जय जगदीश हरे।|भक्त जनों के संकट, दास जनों के संकट, क्षण में दूर करे॥|r",
+          ],
+        },
+        {
+          id: "hanuman",
+          n: "श्री हनुमान",
+          e: "🚩",
+          t: "संकटमोचन बजरंगबली",
+          l: [
+            "आरती कीजै हनुमान लला की।|दुष्ट दलन रघुनाथ कला की॥|r",
+            "जाके बल से गिरिवर कांपे।|रोग दोष जाके निकट न झांके॥",
+            "अंजनि पुत्र महा बलदायी।|संतन के प्रभु सदा सहाई॥",
+            "दे बीड़ा रघुनाथ पठाए।|लंका जारि सिया सुधि लाए॥",
+            "लंका सो कोट समुद्र सी खाई।|जात पवनसुत बार न लाई॥",
+            "लंका जारि असुर संहारे।|सियारामजी के काज सवारे॥",
+            "लक्ष्मण मूर्छित पड़े सकारे।|आनि संजीवन प्राण उबारे॥",
+            "पैठि पाताल तोरि जमकारे।|अहिरावण की भुजा उखारे॥",
+            "बाएं भुजा असुर दल मारे।|दाहिने भुजा संतजन तारे॥",
+            "सुर नर मुनि आरती उतारें।|जय जय जय हनुमान उचारें॥",
+            "कंचन थार कपूर लौ छाई।|आरती करत अंजना माई॥",
+            "जो हनुमान जी की आरती गावै।|बसि बैकुंठ परमपद पावै॥|r",
+            "लंक विध्वंस कीन्ह रघुराई।|तुलसीदास प्रभु कीरति गाई॥",
+          ],
+        },
+        {
+          id: "durga",
+          n: "माँ दुर्गा",
+          e: "🦁",
+          t: "जय अम्बे गौरी",
+          l: [
+            "जय अम्बे गौरी, मैया जय श्यामा गौरी।|तुमको निशिदिन ध्यावत, हरि ब्रह्मा शिवरी॥|r",
+            "मांग सिंदूर विराजत, टीको मृगमद को।|उज्ज्वल से दोउ नैना, चंद्रवदन नीको॥",
+            "कनक समान कलेवर, रक्तांबर राजै।|रक्तपुष्प गल माला, कंठन पर साजै॥",
+            "केहरि वाहन राजत, खड्ग खप्पर धारी।|सुर नर मुनिजन सेवत, तिनके दुखहारी॥",
+            "कात्यायनि कल्याणी, काली महाकाली।|काली महाकाली, सबके दुखहारी॥",
+            "शुंभ निशुंभ बिदारे, महिषासुर घाती।|धूम्रविलोचन नैना, निशिदिन मदमाती॥",
+            "चंड मुंड संहारे, शोणित बीज हरे।|मधु कैटभ दोऊ मारे, सुर भय दूर करे॥",
+            "ब्रह्माणी रुद्राणी, तुम कमला रानी।|आगम निगम बखानी, तुम शिव मुख ज्ञानी॥",
+            "चौसठ योगिनि गावत, नृत्य करत भैरू।|बाजत ताल मृदंगा, अरु बाजत डमरू॥",
+            "तुम ही जग की माता, तुम ही हो भरता।|भक्तन की दुख हरता, सुख संपत्ति करता॥",
+            "जय अम्बे गौरी, मैया जय श्यामा गौरी।|तुमको निशिदिन ध्यावत, हरि ब्रह्मा शिवरी॥|r",
+          ],
+        },
+        {
+          id: "lakshmi",
+          n: "माँ लक्ष्मी",
+          e: "💰",
+          t: "धन-वैभव की दात्री",
+          l: [
+            "ॐ जय लक्ष्मी माता, मैया जय लक्ष्मी माता।|तुमको निशदिन सेवत, हर विष्णु विधाता॥|r",
+            "उमा रमा ब्रह्माणी, तुम ही जग माता।|सूर्य चन्द्रमा ध्यावत, नारद ऋषि गाता॥",
+            "दुर्गा रूप निरंजनि, सुख संपत्ति दाता।|जो कोई तुमको ध्याता, ऋद्धि सिद्धि धन पाता॥",
+            "तुम पाताल निवासिनि, तुम ही शुभदाता।|कर्म प्रभाव प्रकाशिनी, भवनिधि की त्राता॥",
+            "जिस घर में तुम रहतीं, सदा सुख छाया।|सब सुख संपत्ति आवै, दुःख दूर भगाया॥",
+            "तुम ही हो जग की माता, तुम ही हो भरता।|मैं मूरख खल कामी, कृपा करो भर्ता॥",
+            "ॐ जय लक्ष्मी माता, मैया जय लक्ष्मी माता।|तुमको निशदिन सेवत, हर विष्णु विधाता॥|r",
+          ],
+        },
+        {
+          id: "krishna",
+          n: "श्री कृष्ण",
+          e: "🦚",
+          t: "कुंज बिहारी गिरिधर",
+          l: [
+            "आरती कुंज बिहारी की।|श्री गिरिधर कृष्ण मुरारी की॥|r",
+            "गले में बैजंती माला।|बजावै मुरली मधुर बाला॥",
+            "श्रवण में कुंडल झलकाला।|नंद के आनंद नंदलाला॥",
+            "गगन सम अंग कांति काली।|राधिका चमक रही आली॥",
+            "ललित छवि श्यामा प्यारी की।|श्री गिरिधर कृष्ण मुरारी की॥",
+            "कनकमय मोर मुकुट सोहे।|देवता दरशन को मोहे॥",
+            "आरती कुंज बिहारी की।|श्री गिरिधर कृष्ण मुरारी की॥|r",
+          ],
+        },
+        {
+          id: "ram",
+          n: "श्री राम",
+          e: "🏹",
+          t: "श्री रामचंद्र स्तुति",
+          l: [
+            "श्री रामचंद्र कृपालु भजु मन।|हरण भव भय दारुणं॥|r",
+            "नवकंज लोचन कंज मुख।|कर कंज पद कंजारुणं॥",
+            "कंदर्प अगणित अमित छवि।|नव नील नीरद सुंदरं॥",
+            "पट पीत मानहुं तड़ित रुचि।|शुचि नौमि जनक सुतावरं॥",
+            "भजु दीनबंधु दिनेश दानव।|दैत्य वंश निकंदनं॥",
+            "रघुनंद आनंदकंद कौशल।|चंद दिनेश दिनेश्वरं॥",
+            "श्री रामचंद्र कृपालु भजु मन।|हरण भव भय दारुणं॥|r",
+            "सिर मुकुट कुंडल तिलक चारु।|उदार अंग विभूषणं॥",
+            "आजानु भुज शर चाप धर।|संग्राम जित खर दूषणं॥",
+            "इति वदति तुलसीदास शंकर।|शेष मुनि मन रंजनं॥",
+            "मम हृदय कंज निवास कुरु।|कामादि खल दल गंजनं॥",
+            "श्री रामचंद्र कृपालु भजु मन।|हरण भव भय दारुणं॥|r",
+          ],
+        },
+      ];
+      const nav = document.getElementById("nav"),
+        card = document.getElementById("card");
+      let fs = 1.25;
+      A.forEach((g) => {
+        const b = document.createElement("button");
+        b.className = "chip";
+        b.id = "c-" + g.id;
+        b.textContent = g.e + " " + g.n;
+        b.onclick = () => show(g.id);
+        nav.appendChild(b);
+      });
+      function show(id, skip) {
+        const g = A.find((x) => x.id === id) || A[0];
+        document
+          .querySelectorAll(".chip")
+          .forEach((c) => c.classList.toggle("active", c.id === "c-" + g.id));
+        let h =
+          "<h2>" +
+          g.e +
+          " " +
+          g.n +
+          ' की आरती</h2><div class="tag">' +
+          g.t +
+          '</div><div class="lines">';
+        g.l.forEach((s, i) => {
+          const p = s.split("|");
+          const r = p[2] === "r" ? " refrain" : "";
+          h +=
+            '<p class="' +
+            r.trim() +
+            '" style="animation-delay:' +
+            i * 0.12 +
+            's">' +
+            p[0] +
+            "<br>" +
+            p[1] +
+            "</p>";
+        });
+        h += '</div><div class="om">🪔 ॐ शांति शांति शांति 🪔</div>';
+        card.style.animation = "none";
+        card.offsetHeight;
+        card.style.animation = "";
+        card.innerHTML = h;
+        if (!skip) {
+          try {
+            history.replaceState(null, "", "#" + g.id);
+          } catch (e) {}
+        }
+        card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+      function size(d) {
+        fs = Math.min(2, Math.max(0.9, fs + d));
+        document.documentElement.style.setProperty("--fs", fs + "rem");
+      }
+      document.getElementById("plus").onclick = () => size(0.12);
+      document.getElementById("minus").onclick = () => size(-0.12);
+      document.getElementById("theme").onclick = () => {
+        const r = document.documentElement;
+        const dark = r.dataset.theme
+          ? r.dataset.theme === "dark"
+          : matchMedia("(prefers-color-scheme: dark)").matches;
+        r.dataset.theme = dark ? "light" : "dark";
+      };
+      addEventListener("hashchange", () => show(location.hash.slice(1), true));
+      show(location.hash.slice(1) || "ganesh", true);
+    </script>
+  </body>
+</html>
